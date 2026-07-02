@@ -49,6 +49,16 @@
 
 `nav3://product/42` 같은 외부 입력을 단일 화면이 아니라 `Home > Catalog > Product(42)` 백 스택으로 변환합니다. 사용자가 뒤로 가기를 눌렀을 때 앱의 자연스러운 중간 화면으로 돌아가게 만드는 패턴입니다.
 
+## 7. 결과 전달
+
+파일:
+
+- `app/src/main/java/com/example/nav3example/examples/result/AddressResultController.kt`
+- `app/src/main/java/com/example/nav3example/examples/result/ResultPassingExample.kt`
+- `app/src/test/java/com/example/nav3example/examples/result/AddressResultControllerTest.kt`
+
+체크아웃 화면에서 배송지 선택 화면을 열고, 사용자가 주소를 고르면 부모 화면의 상태에 결과를 저장한 뒤 배송지 선택 route를 제거합니다. Navigation 3에서 결과 전달을 별도 전역 이벤트가 아니라 명시적인 상태 변경과 백 스택 조작으로 표현하는 예제입니다.
+
 ## 현재 의존성 선택
 
 - `androidx.navigation3:navigation3-runtime:1.1.4`

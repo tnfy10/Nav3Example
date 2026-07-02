@@ -33,6 +33,7 @@ import com.example.nav3example.examples.basic.BasicNavigationExample
 import com.example.nav3example.examples.complex.ComplexCheckoutExample
 import com.example.nav3example.examples.deeplink.DeepLinkExample
 import com.example.nav3example.examples.intermediate.IntermediateSavedStateExample
+import com.example.nav3example.examples.result.ResultPassingExample
 import com.example.nav3example.ui.theme.Nav3ExampleTheme
 
 class MainActivity : ComponentActivity() {
@@ -69,6 +70,7 @@ fun Nav3LearningApp() {
             LearningExample.Complex -> ComplexCheckoutExample(Modifier.padding(innerPadding))
             LearningExample.Adaptive -> AdaptiveMailExample(Modifier.padding(innerPadding))
             LearningExample.DeepLink -> DeepLinkExample(Modifier.padding(innerPadding))
+            LearningExample.Result -> ResultPassingExample(Modifier.padding(innerPadding))
             null -> ExampleLauncher(
                 onOpen = { selectedExample = it },
                 modifier = Modifier.padding(innerPadding)
@@ -132,5 +134,9 @@ enum class LearningExample(
     DeepLink(
         title = "복잡한 사례: 딥링크 진입",
         summary = "외부 링크를 Navigation 3 백 스택으로 변환"
+    ),
+    Result(
+        title = "복잡한 사례: 결과 전달",
+        summary = "자식 화면의 선택 결과를 부모 화면 상태로 반환"
     )
 }
