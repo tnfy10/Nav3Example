@@ -59,6 +59,16 @@
 
 체크아웃 화면에서 배송지 선택 화면을 열고, 사용자가 주소를 고르면 부모 화면의 상태에 결과를 저장한 뒤 배송지 선택 route를 제거합니다. Navigation 3에서 결과 전달을 별도 전역 이벤트가 아니라 명시적인 상태 변경과 백 스택 조작으로 표현하는 예제입니다.
 
+## 8. 온보딩 Gate
+
+파일:
+
+- `app/src/main/java/com/example/nav3example/examples/onboarding/OnboardingFlowController.kt`
+- `app/src/main/java/com/example/nav3example/examples/onboarding/OnboardingGateExample.kt`
+- `app/src/test/java/com/example/nav3example/examples/onboarding/OnboardingFlowControllerTest.kt`
+
+첫 실행, 권한 안내, 메인 앱 진입을 각각 root flow로 다룹니다. 화면을 계속 push하는 대신 현재 앱 상태에 맞는 시작 route로 백 스택을 교체하는 패턴입니다.
+
 ## 현재 의존성 선택
 
 - `androidx.navigation3:navigation3-runtime:1.1.4`
