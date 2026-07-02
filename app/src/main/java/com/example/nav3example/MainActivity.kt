@@ -33,6 +33,7 @@ import com.example.nav3example.examples.basic.BasicNavigationExample
 import com.example.nav3example.examples.complex.ComplexCheckoutExample
 import com.example.nav3example.examples.deeplink.DeepLinkExample
 import com.example.nav3example.examples.intermediate.IntermediateSavedStateExample
+import com.example.nav3example.examples.modal.ModalRouteExample
 import com.example.nav3example.examples.onboarding.OnboardingGateExample
 import com.example.nav3example.examples.result.ResultPassingExample
 import com.example.nav3example.ui.theme.Nav3ExampleTheme
@@ -73,6 +74,7 @@ fun Nav3LearningApp() {
             LearningExample.DeepLink -> DeepLinkExample(Modifier.padding(innerPadding))
             LearningExample.Result -> ResultPassingExample(Modifier.padding(innerPadding))
             LearningExample.Onboarding -> OnboardingGateExample(Modifier.padding(innerPadding))
+            LearningExample.Modal -> ModalRouteExample(Modifier.padding(innerPadding))
             null -> ExampleLauncher(
                 onOpen = { selectedExample = it },
                 modifier = Modifier.padding(innerPadding)
@@ -144,5 +146,9 @@ enum class LearningExample(
     Onboarding(
         title = "실무 사례: 온보딩 Gate",
         summary = "첫 실행, 권한 안내, 메인 앱 진입을 root flow로 전환"
+    ),
+    Modal(
+        title = "실무 사례: 모달 Route",
+        summary = "필터, 미리보기, 확인 화면을 백 스택으로 관리"
     )
 }

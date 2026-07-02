@@ -69,6 +69,16 @@
 
 첫 실행, 권한 안내, 메인 앱 진입을 각각 root flow로 다룹니다. 화면을 계속 push하는 대신 현재 앱 상태에 맞는 시작 route로 백 스택을 교체하는 패턴입니다.
 
+## 9. 모달 Route
+
+파일:
+
+- `app/src/main/java/com/example/nav3example/examples/modal/ModalRouteController.kt`
+- `app/src/main/java/com/example/nav3example/examples/modal/ModalRouteExample.kt`
+- `app/src/test/java/com/example/nav3example/examples/modal/ModalRouteControllerTest.kt`
+
+필터, 사진 미리보기, 삭제 확인처럼 임시로 보이는 UI도 route로 모델링합니다. 이렇게 하면 뒤로 가기, 상태 복원, 취소/확인 처리를 일반 화면과 같은 규칙으로 다룰 수 있습니다.
+
 ## 현재 의존성 선택
 
 - `androidx.navigation3:navigation3-runtime:1.1.4`
