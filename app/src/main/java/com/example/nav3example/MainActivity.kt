@@ -30,6 +30,7 @@ import androidx.compose.ui.unit.dp
 import com.example.nav3example.examples.advanced.AdvancedTabsExample
 import com.example.nav3example.examples.adaptive.AdaptiveMailExample
 import com.example.nav3example.examples.basic.BasicNavigationExample
+import com.example.nav3example.examples.booking.BookingFlowExample
 import com.example.nav3example.examples.complex.ComplexCheckoutExample
 import com.example.nav3example.examples.deeplink.DeepLinkExample
 import com.example.nav3example.examples.intermediate.IntermediateSavedStateExample
@@ -75,6 +76,7 @@ fun Nav3LearningApp() {
             LearningExample.Result -> ResultPassingExample(Modifier.padding(innerPadding))
             LearningExample.Onboarding -> OnboardingGateExample(Modifier.padding(innerPadding))
             LearningExample.Modal -> ModalRouteExample(Modifier.padding(innerPadding))
+            LearningExample.Booking -> BookingFlowExample(Modifier.padding(innerPadding))
             null -> ExampleLauncher(
                 onOpen = { selectedExample = it },
                 modifier = Modifier.padding(innerPadding)
@@ -150,5 +152,9 @@ enum class LearningExample(
     Modal(
         title = "실무 사례: 모달 Route",
         summary = "필터, 미리보기, 확인 화면을 백 스택으로 관리"
+    ),
+    Booking(
+        title = "도메인 사례: 여행 예약 Flow",
+        summary = "검색부터 결제 완료까지 긴 flow와 로그인 gate 처리"
     )
 }

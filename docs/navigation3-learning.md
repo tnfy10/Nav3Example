@@ -79,6 +79,16 @@
 
 필터, 사진 미리보기, 삭제 확인처럼 임시로 보이는 UI도 route로 모델링합니다. 이렇게 하면 뒤로 가기, 상태 복원, 취소/확인 처리를 일반 화면과 같은 규칙으로 다룰 수 있습니다.
 
+## 10. 여행 예약 Flow
+
+파일:
+
+- `app/src/main/java/com/example/nav3example/examples/booking/BookingFlowController.kt`
+- `app/src/main/java/com/example/nav3example/examples/booking/BookingFlowExample.kt`
+- `app/src/test/java/com/example/nav3example/examples/booking/BookingFlowControllerTest.kt`
+
+검색, 호텔 상세, 객실 선택, 로그인 gate, 결제, 예약 완료까지 이어지는 긴 도메인 flow입니다. 결제 전에 로그인 상태를 확인하고, 예약 완료 시 긴 중간 스택을 `Search > Receipt` 형태로 축약합니다.
+
 ## 현재 의존성 선택
 
 - `androidx.navigation3:navigation3-runtime:1.1.4`
