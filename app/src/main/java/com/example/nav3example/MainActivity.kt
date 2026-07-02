@@ -31,6 +31,7 @@ import com.example.nav3example.examples.advanced.AdvancedTabsExample
 import com.example.nav3example.examples.adaptive.AdaptiveMailExample
 import com.example.nav3example.examples.basic.BasicNavigationExample
 import com.example.nav3example.examples.complex.ComplexCheckoutExample
+import com.example.nav3example.examples.deeplink.DeepLinkExample
 import com.example.nav3example.examples.intermediate.IntermediateSavedStateExample
 import com.example.nav3example.ui.theme.Nav3ExampleTheme
 
@@ -67,6 +68,7 @@ fun Nav3LearningApp() {
             LearningExample.Advanced -> AdvancedTabsExample(Modifier.padding(innerPadding))
             LearningExample.Complex -> ComplexCheckoutExample(Modifier.padding(innerPadding))
             LearningExample.Adaptive -> AdaptiveMailExample(Modifier.padding(innerPadding))
+            LearningExample.DeepLink -> DeepLinkExample(Modifier.padding(innerPadding))
             null -> ExampleLauncher(
                 onOpen = { selectedExample = it },
                 modifier = Modifier.padding(innerPadding)
@@ -126,5 +128,9 @@ enum class LearningExample(
     Adaptive(
         title = "복잡한 사례: Adaptive 목록-상세",
         summary = "화면 폭에 따라 단일 화면과 목록-상세 동시 표시 전환"
+    ),
+    DeepLink(
+        title = "복잡한 사례: 딥링크 진입",
+        summary = "외부 링크를 Navigation 3 백 스택으로 변환"
     )
 }

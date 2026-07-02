@@ -39,6 +39,16 @@
 
 메일 앱처럼 좁은 화면에서는 목록과 상세를 각각 한 화면씩 보여주고, 넓은 화면에서는 목록과 상세를 동시에 보여줍니다. Navigation 3의 백 스택은 그대로 유지하면서 레이아웃만 화면 폭에 따라 다르게 해석하는 예제입니다.
 
+## 6. 딥링크 진입
+
+파일:
+
+- `app/src/main/java/com/example/nav3example/examples/deeplink/DeepLinkRoutes.kt`
+- `app/src/main/java/com/example/nav3example/examples/deeplink/DeepLinkExample.kt`
+- `app/src/test/java/com/example/nav3example/examples/deeplink/DeepLinkRouteParserTest.kt`
+
+`nav3://product/42` 같은 외부 입력을 단일 화면이 아니라 `Home > Catalog > Product(42)` 백 스택으로 변환합니다. 사용자가 뒤로 가기를 눌렀을 때 앱의 자연스러운 중간 화면으로 돌아가게 만드는 패턴입니다.
+
 ## 현재 의존성 선택
 
 - `androidx.navigation3:navigation3-runtime:1.1.4`
