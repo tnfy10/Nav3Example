@@ -99,6 +99,16 @@
 
 공식 shared ViewModel 패턴을 학습용으로 단순화한 예제입니다. 부모 route의 상태를 자식 route가 함께 변경하고, 독립 route는 별도 상태를 사용해 scope 차이를 보여줍니다.
 
+## 12. Top-level State Holder
+
+파일:
+
+- `app/src/main/java/com/example/nav3example/examples/stateholder/TopLevelNavigationState.kt`
+- `app/src/main/java/com/example/nav3example/examples/stateholder/TopLevelStateHolderExample.kt`
+- `app/src/test/java/com/example/nav3example/examples/stateholder/TopLevelNavigationStateTest.kt`
+
+공식 문서의 `NavigationState`/`Navigator` 패턴을 학습용으로 단순화한 예제입니다. 여러 최상위 route가 각자의 백 스택을 갖고, 최상위 route 전환은 스택을 지우지 않고 선택 상태만 바꿉니다.
+
 ## 현재 의존성 선택
 
 - `androidx.navigation3:navigation3-runtime:1.1.4`
