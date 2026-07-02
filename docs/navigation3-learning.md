@@ -30,6 +30,15 @@
 
 실제 앱에 가까운 흐름을 다룹니다. 로그인하지 않은 상태에서 체크아웃을 시작하면 로그인 화면을 거친 뒤, 원래 이어가려던 체크아웃 단계로 계속 진행합니다.
 
+## 5. Adaptive 목록-상세
+
+파일:
+
+- `app/src/main/java/com/example/nav3example/examples/adaptive/AdaptiveMailExample.kt`
+- `app/src/test/java/com/example/nav3example/examples/adaptive/AdaptiveMailStateTest.kt`
+
+메일 앱처럼 좁은 화면에서는 목록과 상세를 각각 한 화면씩 보여주고, 넓은 화면에서는 목록과 상세를 동시에 보여줍니다. Navigation 3의 백 스택은 그대로 유지하면서 레이아웃만 화면 폭에 따라 다르게 해석하는 예제입니다.
+
 ## 현재 의존성 선택
 
 - `androidx.navigation3:navigation3-runtime:1.1.4`

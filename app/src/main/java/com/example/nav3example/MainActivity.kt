@@ -28,6 +28,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.nav3example.examples.advanced.AdvancedTabsExample
+import com.example.nav3example.examples.adaptive.AdaptiveMailExample
 import com.example.nav3example.examples.basic.BasicNavigationExample
 import com.example.nav3example.examples.complex.ComplexCheckoutExample
 import com.example.nav3example.examples.intermediate.IntermediateSavedStateExample
@@ -65,6 +66,7 @@ fun Nav3LearningApp() {
             LearningExample.Intermediate -> IntermediateSavedStateExample(Modifier.padding(innerPadding))
             LearningExample.Advanced -> AdvancedTabsExample(Modifier.padding(innerPadding))
             LearningExample.Complex -> ComplexCheckoutExample(Modifier.padding(innerPadding))
+            LearningExample.Adaptive -> AdaptiveMailExample(Modifier.padding(innerPadding))
             null -> ExampleLauncher(
                 onOpen = { selectedExample = it },
                 modifier = Modifier.padding(innerPadding)
@@ -120,5 +122,9 @@ enum class LearningExample(
     Complex(
         title = "복잡한 사례: 쇼핑 체크아웃",
         summary = "로그인 관문과 여러 단계의 체크아웃 흐름"
+    ),
+    Adaptive(
+        title = "복잡한 사례: Adaptive 목록-상세",
+        summary = "화면 폭에 따라 단일 화면과 목록-상세 동시 표시 전환"
     )
 }
