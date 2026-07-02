@@ -37,6 +37,7 @@ import com.example.nav3example.examples.intermediate.IntermediateSavedStateExamp
 import com.example.nav3example.examples.modal.ModalRouteExample
 import com.example.nav3example.examples.onboarding.OnboardingGateExample
 import com.example.nav3example.examples.result.ResultPassingExample
+import com.example.nav3example.examples.sharedstate.SharedStateExample
 import com.example.nav3example.ui.theme.Nav3ExampleTheme
 
 class MainActivity : ComponentActivity() {
@@ -77,6 +78,7 @@ fun Nav3LearningApp() {
             LearningExample.Onboarding -> OnboardingGateExample(Modifier.padding(innerPadding))
             LearningExample.Modal -> ModalRouteExample(Modifier.padding(innerPadding))
             LearningExample.Booking -> BookingFlowExample(Modifier.padding(innerPadding))
+            LearningExample.SharedState -> SharedStateExample(Modifier.padding(innerPadding))
             null -> ExampleLauncher(
                 onOpen = { selectedExample = it },
                 modifier = Modifier.padding(innerPadding)
@@ -156,5 +158,9 @@ enum class LearningExample(
     Booking(
         title = "도메인 사례: 여행 예약 Flow",
         summary = "검색부터 결제 완료까지 긴 flow와 로그인 gate 처리"
+    ),
+    SharedState(
+        title = "공식 패턴: 부모-자식 공유 상태",
+        summary = "부모 route scope의 상태를 자식 route에서 함께 사용"
     )
 }

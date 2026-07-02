@@ -89,6 +89,16 @@
 
 검색, 호텔 상세, 객실 선택, 로그인 gate, 결제, 예약 완료까지 이어지는 긴 도메인 flow입니다. 결제 전에 로그인 상태를 확인하고, 예약 완료 시 긴 중간 스택을 `Search > Receipt` 형태로 축약합니다.
 
+## 11. 부모-자식 공유 상태
+
+파일:
+
+- `app/src/main/java/com/example/nav3example/examples/sharedstate/SharedStateController.kt`
+- `app/src/main/java/com/example/nav3example/examples/sharedstate/SharedStateExample.kt`
+- `app/src/test/java/com/example/nav3example/examples/sharedstate/SharedStateControllerTest.kt`
+
+공식 shared ViewModel 패턴을 학습용으로 단순화한 예제입니다. 부모 route의 상태를 자식 route가 함께 변경하고, 독립 route는 별도 상태를 사용해 scope 차이를 보여줍니다.
+
 ## 현재 의존성 선택
 
 - `androidx.navigation3:navigation3-runtime:1.1.4`
