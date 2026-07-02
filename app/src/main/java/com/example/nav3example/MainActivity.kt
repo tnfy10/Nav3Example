@@ -2,15 +2,35 @@ package com.example.nav3example
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.Card
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import com.example.nav3example.examples.advanced.AdvancedTabsExample
+import com.example.nav3example.examples.basic.BasicNavigationExample
+import com.example.nav3example.examples.complex.ComplexCheckoutExample
+import com.example.nav3example.examples.intermediate.IntermediateSavedStateExample
 import com.example.nav3example.ui.theme.Nav3ExampleTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,29 +39,86 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             Nav3ExampleTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                Nav3LearningApp()
+            }
+        }
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun Nav3LearningApp() {
+    var selectedExample by remember { mutableStateOf<LearningExample?>(null) }
+    BackHandler(enabled = selectedExample != null) {
+        selectedExample = null
+    }
+
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = { Text(selectedExample?.title ?: "Navigation 3 예제") }
+            )
+        }
+    ) { innerPadding ->
+        when (selectedExample) {
+            LearningExample.Basic -> BasicNavigationExample(Modifier.padding(innerPadding))
+            LearningExample.Intermediate -> IntermediateSavedStateExample(Modifier.padding(innerPadding))
+            LearningExample.Advanced -> AdvancedTabsExample(Modifier.padding(innerPadding))
+            LearningExample.Complex -> ComplexCheckoutExample(Modifier.padding(innerPadding))
+            null -> ExampleLauncher(
+                onOpen = { selectedExample = it },
+                modifier = Modifier.padding(innerPadding)
+            )
+        }
+    }
+}
+
+@Composable
+private fun ExampleLauncher(
+    onOpen: (LearningExample) -> Unit,
+    modifier: Modifier = Modifier
+) {
+    LazyColumn(
+        modifier = modifier.fillMaxSize(),
+        contentPadding = PaddingValues(16.dp),
+        verticalArrangement = Arrangement.spacedBy(12.dp)
+    ) {
+        items(LearningExample.entries) { example ->
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clickable { onOpen(example) }
+            ) {
+                Column(
+                    modifier = Modifier.padding(16.dp),
+                    verticalArrangement = Arrangement.spacedBy(6.dp)
+                ) {
+                    Text(example.title, style = MaterialTheme.typography.titleMedium)
+                    Text(example.summary, style = MaterialTheme.typography.bodyMedium)
                 }
             }
         }
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
+enum class LearningExample(
+    val title: String,
+    val summary: String
+) {
+    Basic(
+        title = "기초: 직접 다루는 백 스택",
+        summary = "NavDisplay, NavEntry, 키 추가/제거 흐름"
+    ),
+    Intermediate(
+        title = "중급: 저장 가능한 타입 라우트",
+        summary = "Serializable NavKey, rememberNavBackStack, 인자 전달"
+    ),
+    Advanced(
+        title = "응용: 탭별 백 스택",
+        summary = "최상위 목적지마다 독립적인 이동 기록 유지"
+    ),
+    Complex(
+        title = "복잡한 사례: 쇼핑 체크아웃",
+        summary = "로그인 관문과 여러 단계의 체크아웃 흐름"
     )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    Nav3ExampleTheme {
-        Greeting("Android")
-    }
 }

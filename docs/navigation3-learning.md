@@ -1,0 +1,40 @@
+# Navigation 3 학습 경로
+
+이 앱은 Navigation 3 예제를 단계별 패키지로 나누어 둡니다. 기초부터 복잡한 사례까지 순서대로 코드를 읽으면서 학습할 수 있습니다.
+
+## 1. 기초
+
+파일: `app/src/main/java/com/example/nav3example/examples/basic/BasicNavigationExample.kt`
+
+`NavDisplay`, `NavEntry`, 변경 가능한 백 스택을 중심으로 봅니다. 라우트는 단순 Kotlin 객체로 두어, Navigation 3의 가장 기본 모델이 "키 목록"이라는 점을 보여줍니다.
+
+## 2. 중급
+
+파일: `app/src/main/java/com/example/nav3example/examples/intermediate/IntermediateSavedStateExample.kt`
+
+`NavKey`, `@Serializable`, 라우트 인자, `rememberNavBackStack`을 중심으로 봅니다. 저장 가능한 내비게이션 상태를 만들 때 실제로 사용하게 될 라우트 모델링 방식입니다.
+
+## 3. 응용
+
+파일: `app/src/main/java/com/example/nav3example/examples/advanced/AdvancedTabsExample.kt`
+
+최상위 목적지마다 독립적인 백 스택을 유지하는 방법을 봅니다. 한 탭에서 하위 화면을 연 뒤 다른 탭으로 이동하고 다시 돌아와, 각 탭의 이동 기록이 따로 유지되는지 확인해 보세요.
+
+## 4. 복잡한 사례
+
+파일:
+
+- `app/src/main/java/com/example/nav3example/examples/complex/CheckoutFlowController.kt`
+- `app/src/main/java/com/example/nav3example/examples/complex/ComplexCheckoutExample.kt`
+- `app/src/test/java/com/example/nav3example/examples/complex/CheckoutFlowControllerTest.kt`
+
+실제 앱에 가까운 흐름을 다룹니다. 로그인하지 않은 상태에서 체크아웃을 시작하면 로그인 화면을 거친 뒤, 원래 이어가려던 체크아웃 단계로 계속 진행합니다.
+
+## 현재 의존성 선택
+
+- `androidx.navigation3:navigation3-runtime:1.1.4`
+- `androidx.navigation3:navigation3-ui:1.1.4`
+- `androidx.lifecycle:lifecycle-viewmodel-navigation3:2.11.0`
+- `org.jetbrains.kotlinx:kotlinx-serialization-core:1.11.0`
+
+이 프로젝트는 최신 alpha 채널 대신 Navigation 3의 최신 stable 릴리스를 사용합니다.
